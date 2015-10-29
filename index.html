@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cn">
+    <meta charset="UTF-8">
+    <title>ToarunoMusicPlayer</title>
+    <link rel="stylesheet" href="css/materialize.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+<section class="container row valign-wrapper">
+    <section class="col l8 offset-l2 valign content-wrapper z-depth-1 indigo hoverable">
+
+        <a class="col l1 valign-wrapper waves-effect waves-circle menu-btn">
+            <i class="valign small material-icons white-text menu-icon">queue_music</i>
+        </a>
+        <section class="col l10 offset-l1 player-content ">
+            <img class="cover z-depth-1" src="img/cover.jpg" alt="cover"/>
+            <section class="about col l7 right ">
+                <h1 class="title white-text">Suis-moi</h1>
+
+                <h2 class="subtitle white-text">Hans Zimmer / Richard Harvey</h2>
+
+                <section class="player-controller white col l12 valign-wrapper z-depth-1">
+                    <div class="col l4 valign valign-wrapper">
+                        <a class="waves-effect waves-circle ctrl center-block valign-wrapper valign" id="prev">
+                            <i class="small material-icons black-text valign">skip_previous</i>
+                        </a>
+                    </div>
+                    <div class="col l4 valign">
+                        <a class="btn-floating btn-large waves-effect waves-light red center-block" id="play">
+                            <i class="large material-icons black-text">play_arrow</i>
+                        </a>
+                    </div>
+                    <div class="col l4 valign">
+                        <a class="waves-effect waves-circle ctrl center-block" id="next">
+                            <i class="small material-icons black-text">skip_next</i>
+                        </a>
+                    </div>
+                </section>
+            </section>
+        </section>
+        <footer class="col l12 player-footer grey darken-4 center-align">
+            <a class="waves-effect waves-red info-btn">
+                <i class="small circle white-text"></i>
+            </a>
+        </footer>
+    </section>
+</section>
+<script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+<script src="js/materialize.min.js"></script>
+</body>
+</html>
