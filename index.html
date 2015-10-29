@@ -16,28 +16,61 @@
         </a>
         <section class="col l10 offset-l1 player-content ">
             <img class="cover z-depth-1 hoverable" src="img/cover.jpg" alt="cover"/>
+
+            <div class="background-mask"></div>
             <section class="about col l7 right ">
                 <h1 class="title white-text">Suis-moi</h1>
 
                 <h2 class="subtitle white-text">Hans Zimmer / Richard Harvey</h2>
 
                 <section class="player-controller white col l12 valign-wrapper z-depth-1">
-                    <div class="col l4 valign valign-wrapper">
-                        <a class="waves-effect waves-circle ctrl center-block valign-wrapper valign" id="prev">
-                            <i class="small material-icons black-text valign">skip_previous</i>
-                        </a>
+                    <div class="complete-mode col l12">
+                        <div class="col l3 valign valign-wrapper">
+                            <a class="waves-effest waves-circle ctrl center-block valign-wrapper valign" id="list">
+                                <i class="small material-icons valign black-text">queue_music</i>
+                            </a>
+                        </div>
+                        <div class="col l2 valign valign-wrapper">
+                            <a class="waves-effect waves-circle ctrl center-block valign-wrapper valign prev">
+                                <i class="small material-icons black-text valign">skip_previous</i>
+                            </a>
+                        </div>
+                        <div class="col l2 valign">
+                            <a class="btn-floating btn-large waves-effect waves-light red center-block play"
+                               data-status="play">
+                                <i class="large material-icons black-text play_icon">play_arrow</i>
+                                <i class="large material-icons black-text pause_icon">pause</i>
+                            </a>
+                        </div>
+                        <div class="col l2 valign">
+                            <a class="waves-effect waves-circle ctrl center-block next">
+                                <i class="small material-icons black-text">skip_next</i>
+                            </a>
+                        </div>
+                        <div class="col l3 valign valign-wrapper">
+                            <a class="waves-effest waves-circle ctrl center-block valign-wrapper valign" id="more">
+                                <i class="small material-icons valign black-text">more_vert</i>
+                            </a>
+                        </div>
                     </div>
-                    <div class="col l4 valign">
-                        <a class="btn-floating btn-large waves-effect waves-light red center-block" id="play"
-                           data-status="play">
-                            <i class="large material-icons black-text" id="play_icon">play_arrow</i>
-                            <i class="large material-icons black-text" id="pause_icon">pause</i>
-                        </a>
-                    </div>
-                    <div class="col l4 valign">
-                        <a class="waves-effect waves-circle ctrl center-block" id="next">
-                            <i class="small material-icons black-text">skip_next</i>
-                        </a>
+                    <div class="simple-mode col l12">
+                        <div class="col l4 valign valign-wrapper">
+                            <a class="waves-effect waves-circle ctrl center-block valign-wrapper valign" id="prev">
+                                <i class="small material-icons black-text valign">skip_previous</i>
+                            </a>
+                        </div>
+                        <div class="col l4 valign">
+                            <a class="btn-floating btn-large waves-effect waves-light red center-block" id="play"
+                               data-status="play">
+                                <i class="large material-icons black-text play_icon">play_arrow</i>
+                                <i class="large material-icons black-text pause_icon">pause</i>
+                            </a>
+                        </div>
+                        <div class="col l4 valign">
+                            <a class="waves-effect waves-circle ctrl center-block next">
+                                <i class="small material-icons black-text">skip_next</i>
+                            </a>
+                        </div>
                     </div>
                 </section>
             </section>
@@ -49,11 +82,11 @@
         </footer>
     </section>
 </section>
-<script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+<script src="js/jquery-2.1.4-min.js"></script>
 <script src="js/materialize.min.js"></script>
 <script>
-    $("#play").click(function () {
-        var status = $("#play").attr("data-status");
+    $(".play").click(function () {
+        var status = $(".play").attr("data-status");
         console.log(status);
         if (status == "play") {
             $("#play").attr("data-status", "pause");
@@ -70,8 +103,20 @@
         var status = $("#menu").attr("data-status");
         if (status == "detail") {
             $("#menu").attr("data-status", "outline");
+            $(".about").removeClass("l7 right").addClass("l12");
+            $(".complete-mode").show();
+            $(".simple-mode").hide();
+            $(".cover").addClass("to-background");
+            $(".player-footer").addClass("front-footer");
+            $(".background-mask").addClass("show-mask");
         } else if (status == "outline") {
             $("#menu").attr("data-status", "detail");
+            $(".about").removeClass("l12").addClass("l7 right");
+            $(".complete-mode").hide();
+            $(".simple-mode").show();
+            $(".cover").removeClass("to-background");
+            $(".player-footer").removeClass("front-footer");
+            $(".background-mask").removeClass("show-mask");
         }
     });
 </script>
