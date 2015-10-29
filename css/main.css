@@ -70,6 +70,23 @@ img.cover {
     display: block !important;
 }
 
+#prev > i,
+#play > i,
+#next > i {
+    position: absolute;
+    top: 50%;
+    margin-top: -15px;
+}
+
+#play > i {
+    left: 0;
+    margin-top: -27px;
+}
+
+#next > i {
+    left: 0;
+}
+
 .player-footer {
 }
 
