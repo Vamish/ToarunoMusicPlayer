@@ -43,7 +43,7 @@
             </section>
         </section>
         <footer class="col l12 player-footer grey darken-4 center-align">
-            <a class="waves-effect waves-red info-btn">
+            <a class="waves-effect waves-red info-btn" id="menu" data-status="detail">
                 <i class="small circle white-text"></i>
             </a>
         </footer>
@@ -63,6 +63,15 @@
             $("#play").attr("data-status", "play");
             $("#play_icon").show();
             $("#pause_icon").hide();
+        }
+    });
+
+    $("#menu").click(function () {
+        var status = $("#menu").attr("data-status");
+        if (status == "detail") {
+            $("#menu").attr("data-status", "outline");
+        } else if (status == "outline") {
+            $("#menu").attr("data-status", "detail");
         }
     });
 </script>
