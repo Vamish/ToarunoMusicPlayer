@@ -28,8 +28,10 @@
                         </a>
                     </div>
                     <div class="col l4 valign">
-                        <a class="btn-floating btn-large waves-effect waves-light red center-block" id="play">
-                            <i class="large material-icons black-text">play_arrow</i>
+                        <a class="btn-floating btn-large waves-effect waves-light red center-block" id="play"
+                           data-status="play">
+                            <i class="large material-icons black-text" id="play_icon">play_arrow</i>
+                            <i class="large material-icons black-text" id="pause_icon">pause</i>
                         </a>
                     </div>
                     <div class="col l4 valign">
@@ -49,5 +51,20 @@
 </section>
 <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
 <script src="js/materialize.min.js"></script>
+<script>
+    $("#play").click(function () {
+        var status = $("#play").attr("data-status");
+        console.log(status);
+        if (status == "play") {
+            $("#play").attr("data-status", "pause");
+            $("#play_icon").hide();
+            $("#pause_icon").show();
+        } else if (status == "pause") {
+            $("#play").attr("data-status", "play");
+            $("#play_icon").show();
+            $("#pause_icon").hide();
+        }
+    });
+</script>
 </body>
 </html>

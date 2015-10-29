@@ -87,6 +87,10 @@ img.cover {
     left: 0;
 }
 
+#pause_icon {
+    display: none;
+}
+
 .player-footer {
 }
 
