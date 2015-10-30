@@ -19,29 +19,40 @@
             <img class="background-cover" src="img/cover.jpg" alt="cover"/>
 
             <div class="background-mask"></div>
-            <section class="about col l7 right ">
+            <section class="about col l7 right">
                 <h1 class="title white-text">Suis-moi</h1>
 
                 <h2 class="subtitle white-text">Hans Zimmer / Richard Harvey</h2>
 
                 <section class="player-controller white col l12 valign-wrapper z-depth-1">
-                    <section class="progress-bar col l12 red hoverable">
+                    <section class="progress-bar col l12 red z-depth-1 hoverable">
                     </section>
-                    <div class="col l4 valign valign-wrapper">
+                    <div class="col l5_12 valign valign-wrapper">
+                        <a class="waves-effect waves-circle ctrl center-block valign-wrapper valign" id="order">
+                            <i class="small material-icons black-text valign">repeat</i>
+                        </a>
+                    </div>
+                    <div class="col l5_12 valign valign-wrapper">
                         <a class="waves-effect waves-circle ctrl center-block valign-wrapper valign" id="prev">
                             <i class="small material-icons black-text valign">skip_previous</i>
                         </a>
                     </div>
-                    <div class="col l4 valign">
-                        <a class="btn-floating btn-large waves-effect waves-light red center-block" id="play"
+                    <div class="col l5_12 valign valign-wrapper">
+                        <a class="btn-floating btn-large waves-effect waves-light red center-block valign valign-wrapper"
+                           id="play"
                            data-status="play">
-                            <i class="large material-icons black-text play_icon">play_arrow</i>
-                            <i class="large material-icons black-text pause_icon">pause</i>
+                            <i class="large material-icons black-text play_icon valign">play_arrow</i>
+                            <i class="large material-icons black-text pause_icon valign">pause</i>
                         </a>
                     </div>
-                    <div class="col l4 valign">
-                        <a class="waves-effect waves-circle ctrl center-block" id=next">
-                            <i class="small material-icons black-text">skip_next</i>
+                    <div class="col l5_12 valign valign-wrapper">
+                        <a class="waves-effect waves-circle ctrl center-block valign valign-wrapper" id=next">
+                            <i class="small material-icons black-text valign">skip_next</i>
+                        </a>
+                    </div>
+                    <div class="col l5_12 valign valign-wrapper">
+                        <a class="waves-effect waves-circle ctrl center-block valign valign-wrapper" id=more">
+                            <i class="small material-icons black-text valign">more_vert</i>
                         </a>
                     </div>
                 </section>
@@ -91,12 +102,12 @@
 
         if (status == "detail") {
             $("#menu").attr("data-status", "outline");
-            $(".cover").css("opacity", 0).css("z-index","0");
+            $(".cover").css("opacity", 0).css("z-index", "0");
             $(".background-mask").css("opacity", 1);
             $(".background-cover").css("-webkit-filter", "blur(5px)").css("opacity", "1");
         } else if (status == "outline") {
             $("#menu").attr("data-status", "detail");
-            $(".cover").css("opacity", 1).css("z-index","999");
+            $(".cover").css("opacity", 1).css("z-index", "999");
             $(".background-mask").css("opacity", 0);
             $(".background-cover").css("-webkit-filter", "blur(0)").css("opacity", "0");
         }
