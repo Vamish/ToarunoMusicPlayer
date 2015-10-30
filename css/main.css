@@ -132,7 +132,7 @@ img.cover {
     height: 3px;
 }
 
-.player-content:hover .progress-bar:after {
+.player-controller:hover .progress-bar:after {
     display: block;
 }
 
