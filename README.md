@@ -6,5 +6,5 @@
 CSS Framework: [Materialize.css](http://materializecss.com/)
 
 ## 截图
-!(Screenshot 1)["screenshot/Screenshot_1.png"]
-!(Screenshot 2)["screenshot/Screenshot_2.png"]
+![Screenshot 1]("screenshot/Screenshot_1.png")
+![Screenshot 2]("screenshot/Screenshot_2.png")
