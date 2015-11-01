@@ -110,6 +110,7 @@ img.cover {
 .progress-bar {
     height: 1px;
     position: absolute;
+    overflow: hidden;
     top: 0;
     left: 0;
     cursor: pointer;
@@ -124,6 +125,8 @@ img.cover {
     box-shadow: 0 0 5px black;
     background-color: red;
     border-radius: 50%;
+    position: absolute;
+    right: 0;
     border: 2px solid white;
     display: none;
 }
