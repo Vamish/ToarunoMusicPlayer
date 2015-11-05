@@ -25,7 +25,8 @@
                 <h2 class="subtitle white-text">Hans Zimmer / Richard Harvey</h2>
 
                 <section class="player-controller white col l12 valign-wrapper z-depth-1">
-                    <section class="progress-bar red z-depth-1 hoverable">
+                    <section class="progress-wrapper col l12">
+                        <section class="progress-bar red z-depth-1 hoverable"></section>
                     </section>
                     <div class="col l5_12 valign valign-wrapper">
                         <a class="waves-effect waves-circle ctrl center-block valign-wrapper valign" id="order">
@@ -38,9 +39,8 @@
                         </a>
                     </div>
                     <div class="col l5_12 valign valign-wrapper">
-                        <a class="btn-floating btn-large waves-effect waves-light red center-block valign valign-wrapper"
-                           id="play"
-                           data-status="play">
+                        <a class="btn-floating btn-large waves-effect waves-light red center-block valign valign-wrapper pause"
+                           id="play">
                             <i class="large material-icons black-text valign" id="play_icon">play_arrow</i>
                             <i class="large material-icons black-text valign" id="pause_icon">pause</i>
                         </a>
@@ -68,32 +68,35 @@
 <script src="js/jquery-2.1.4-min.js"></script>
 <script src="js/materialize.min.js"></script>
 <script>
-    $(document).ready(function () {
-        var player_status = $("#play").attr("data-status");
+    var audio = document.createElement("audio");
 
-        if (status == "play") {
-            $("#play").attr("data-status", "pause");
-            $("#play_icon").hide();
-            $("#pause_icon").show();
-        } else if (status == "pause") {
-            $("#play").attr("data-status", "play");
-            $("#play_icon").show();
-            $("#pause_icon").hide();
-        }
+    $(document).ready(function () {
+        loadMusic();
+
+        var player_status = $("#play").attr("data-status");
     });
 
     $("#play").click(function () {
         var status = $("#play").attr("data-status");
-        console.log(status);
-        if (status == "play") {
-            $("#play").attr("data-status", "pause");
-            $("#play_icon").hide();
-            $("#pause_icon").show();
-        } else if (status == "pause") {
-            $("#play").attr("data-status", "play");
-            $("#play_icon").show();
-            $("#pause_icon").hide();
+        $("#play_icon").toggle();
+        $("#pause_icon").toggle();
+        $("#play").toggleClass("play pause");
+        if ($("#play").hasClass("pause")) {
+            controlMusic(0);
+        } else {
+            controlMusic(1);
         }
+    });
+
+    //点击进度条跳转到该位置
+    $(".progress-wrapper").click(function (e) {
+        var progress = e.offsetX * 100 / $(".progress-wrapper").width();
+        var newPosition = new Number(progress);
+        $(".progress-bar").css("width", newPosition.toFixed(2) + "%");
+        var cur = newPosition.toFixed(0) * audio.duration / 100;
+        audio.currentTime = cur;
+        audio.play();
+        console.log(cur);
     });
 
     $("#menu").click(function () {
@@ -112,6 +115,21 @@
             $(".background-cover").css("-webkit-filter", "blur(0)").css("opacity", "0");
         }
     });
+
+    var loadMusic = function () {
+        audio.setAttribute("src", "music/suis-moi.mp3");
+    };
+
+    var controlMusic = function (pause) {
+        var duration = audio.duration;
+        pause ? audio.play() : audio.pause();
+        setInterval(function () {
+            var progress = new Number(audio.currentTime * 100 / duration);
+            $(".progress-bar").css("width", progress.toFixed(2) + "%");
+        }, 1000);
+    };
+
+
 </script>
 </body>
 </html>

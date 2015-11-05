@@ -107,12 +107,19 @@ img.cover {
     border-radius: 2px;
 }
 
-.progress-bar {
-    height: 1px;
+.progress-wrapper {
+    height: 3px;
+    cursor: pointer;
     position: absolute;
-    overflow: hidden;
     top: 0;
     left: 0;
+    padding: 0 !important;
+}
+
+.progress-bar {
+    width: 0%;
+    height: 1px;
+    position: relative;
     cursor: pointer;
 }
 
@@ -166,7 +173,11 @@ img.cover {
     left: 0;
 }
 
-#pause_icon {
+#play.pause #pause_icon {
+    display: none;
+}
+
+#play.play #play_icon {
     display: none;
 }
 
