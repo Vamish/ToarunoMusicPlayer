@@ -5,14 +5,13 @@
     <title>ToarunoMusicPlayer</title>
     <link rel="stylesheet" href="css/materialize.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
 <section class="container row valign-wrapper">
     <section class="col l8 offset-l2 valign content-wrapper z-depth-1 indigo hoverable">
 
         <a class="col l1 valign-wrapper waves-effect waves-circle menu-btn">
-            <i class="valign small material-icons white-text menu-icon">queue_music</i>
+            <i class="valign small material-icons white-text menu-icon mdi-av-queue-music"></i>
         </a>
         <section class="col l10 offset-l1 player-content ">
             <img class="cover z-depth-1 hoverable" src="img/cover.jpg" alt="cover"/>
@@ -20,7 +19,7 @@
 
             <div class="background-mask"></div>
             <section class="about col l7 right">
-                <h1 class="title white-text">Suis-moi</h1>
+                <h1 class="title white-text">Test-moi</h1>
 
                 <h2 class="subtitle white-text">Hans Zimmer / Richard Harvey</h2>
 
@@ -30,29 +29,29 @@
                     </section>
                     <div class="col l5_12 valign valign-wrapper">
                         <a class="waves-effect waves-circle ctrl center-block valign-wrapper valign" id="order">
-                            <i class="small material-icons black-text valign">repeat</i>
+                            <i class="small material-icons black-text valign mdi-av-repeat"></i>
                         </a>
                     </div>
                     <div class="col l5_12 valign valign-wrapper">
                         <a class="waves-effect waves-circle ctrl center-block valign-wrapper valign" id="prev">
-                            <i class="small material-icons black-text valign">skip_previous</i>
+                            <i class="small material-icons black-text valign mdi-av-skip-previous"></i>
                         </a>
                     </div>
                     <div class="col l5_12 valign valign-wrapper">
                         <a class="btn-floating btn-large waves-effect waves-light red center-block valign valign-wrapper pause"
                            id="play">
-                            <i class="large material-icons black-text valign" id="play_icon">play_arrow</i>
-                            <i class="large material-icons black-text valign" id="pause_icon">pause</i>
+                            <i class="large material-icons black-text valign mdi-av-play-arrow" id="play_icon"></i>
+                            <i class="large material-icons black-text valign mdi-av-pause" id="pause_icon"></i>
                         </a>
                     </div>
                     <div class="col l5_12 valign valign-wrapper">
                         <a class="waves-effect waves-circle ctrl center-block valign valign-wrapper" id=next">
-                            <i class="small material-icons black-text valign">skip_next</i>
+                            <i class="small material-icons black-text valign mdi-av-skip-next"></i>
                         </a>
                     </div>
                     <div class="col l5_12 valign valign-wrapper">
                         <a class="waves-effect waves-circle ctrl center-block valign valign-wrapper" id=more">
-                            <i class="small material-icons black-text valign">more_vert</i>
+                            <i class="small material-icons black-text valign mdi-navigation-more-vert"></i>
                         </a>
                     </div>
                 </section>
@@ -128,6 +127,12 @@
             $(".progress-bar").css("width", progress.toFixed(2) + "%");
         }, 1000);
     };
+
+    //歌曲播放完毕
+    audio.addEventListener("ended", function () {
+        audio.currentTime = 0;
+        audio.play();
+    })
 
 
 </script>
